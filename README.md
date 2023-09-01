@@ -4,4 +4,4 @@
 #### Image:
 ![Ashritha Parupati](https://github.com/ashrithap02/5143-OS-Parupati/blob/main/Ashritha.jpeg)
 #### Avatar:
-![Ashritha Parupati](
+![Ashritha Parupati](https://github.com/ashrithap02/5143-OS-Parupati/blob/main/Ashrithap.jpeg)
