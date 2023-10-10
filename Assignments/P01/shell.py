@@ -37,10 +37,10 @@ try:
     def remove_file(file, recursive=False):
         if recursive and os.path.isdir(file):
             shutil.rmtree(file)
+            print('Directory deleted successfully')
         else:
             os.remove(file)
-        print("FIle removed successfully")
-
+            print("File deleted successfully")
 
     def remove_dir(dir):
         os.rmdir(dir)
@@ -55,7 +55,7 @@ try:
     def display_less(file):
         with open(file, 'r') as f:
             lines = f.readlines()
-            print("".join(lines[:5]))
+            print("".join(lines[:7]))
 
     def display_head(file,num=10):
         with open(file, 'r') as f:
@@ -67,15 +67,18 @@ try:
             lines = f.readlines()
             for line in lines[-num:]:
                 print(line, end="")
+            print()
 
     def grep(keyword, file, only_filenames=False):
         with open(file, 'r') as f:
+
             for line in f:
                 if re.search(keyword, line):
                     if only_filenames:
                         print(file)
                         break
                     print(line, end="")
+            print()
 
     def word_count(file):
         with open(file, 'r') as f:
@@ -84,11 +87,11 @@ try:
                 char_count = len(content)
                 word_count = len(content.split())
                 if len(inp)==3:
-                    if inp[2]=='-l':
+                    if inp[1]=='-l':
                         print(f"Lines: {line_count}")
-                    if inp[2]=='-c':
+                    if inp[1]=='-m':
                         print(f"Characters: {char_count}")
-                    if inp[2]=='-w':
+                    if inp[1]=='-w':
                         print(f"Words: {word_count}")
                 else:
                     print(f"Lines: {line_count}")
@@ -112,6 +115,7 @@ try:
                 lines=sorted(lines)
                 for i in lines:
                     print(i,end="")
+                print()
 
 
 
@@ -162,10 +166,6 @@ history	                                      show a history of all your command
 !x	                                      this loads command x from your history so you can run it again
 chmod xxx	                              change modify permission""")
 
-
-
-
-
     history=[]
     while True:
         cur_dir=os.getcwd()
@@ -194,6 +194,9 @@ chmod xxx	                              change modify permission""")
                     os.chdir(parent_directory)
                 elif inp[1]=='~':
                     os.chdir(os.path.expanduser("~"))
+                else:
+                    cur_path=os.path.join(cur_dir, inp[1])
+                    os.chdir(cur_path)
             elif len(inp)==1:
                 os.chdir(os.path.expanduser("~"))
                 
@@ -202,25 +205,28 @@ chmod xxx	                              change modify permission""")
         elif inp[0]=='mv':
             move_file(inp[1],inp[2])
         elif inp[0]=='rm':
-            if len(inp) == 2 and inp[1] == "-r":
-                remove_file(os.getcwd(), recursive=True)
+            if len(inp) == 3 and inp[1] == "-r":
+                remove_file(os.getcwd()+'\\'+inp[2], recursive=True)
             else:
                 for file in inp[1:]:
                     remove_file(file)
         elif inp[0]=='rmdir':
             remove_dir(inp[1])
+        elif inp[0]=='cat' and len(inp)==5 and '>' in inp :
+            concat(inp[1],inp[2],inp[4])
+            continue
         elif inp[0]=='cat':
             display(inp[1:])
         elif inp[0]=='less':
             display_less(inp[1])
         elif inp[0]=='head':
-            if len(inp)==3:
-                display_head(inp[1],inp[2])
+            if len(inp)==4 and inp[2]=='-n':
+                display_head(inp[1],int(inp[3]))
             elif len(inp)==2:
                 display_head(inp[1])
         elif inp[0]=='tail':
-            if len(inp)==3:
-                display_tail(inp[1],inp[2])
+            if len(inp)==4 and inp[2]=='-n':
+                display_tail(inp[1],int(inp[3]))
             elif len(inp)==2:
                 display_tail(inp[1])
         elif inp[0] == "grep" and len(inp) >1 and inp[1] == "-l":
@@ -234,9 +240,9 @@ chmod xxx	                              change modify permission""")
             file_path = inp[2]
             grep(keyword, file_path)
         elif inp[0]=='wc':
-            word_count(inp[1])
-        elif inp[0]=='cat' and len(inp)==5 and '>' in inp :
-            concat(inp[1],inp[2],inp[4])
+            if len(inp)==2:
+                word_count(inp[1])
+            else:word_count(inp[2])
         elif inp[0]=='sort':
             sort_file(inp[1])
         elif inp[0]=='who':
@@ -246,6 +252,12 @@ chmod xxx	                              change modify permission""")
                 print(i)
         elif '!' in inp[0]:
             print(history[int(inp[0][1:])-1])
+        elif inp[0]=='chmod':
+            os.chmod(inp[2], int(inp[1]))
+            print('File permission changed successfully')
+        elif inp[0]=='help':help()
+        else:
+            print('Enter "help" command to get the commands')
 
 except FileNotFoundError as e:
         print(f"Error file not found.{e}")
