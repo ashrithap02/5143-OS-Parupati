@@ -12,33 +12,33 @@ This Project implements a basic shell in python where it runs most of the comman
 When you run shell.py program, it will ask you for prompt where we can give commands like ls, sort, cp, mkdir and so on.
 Based on the commands entered, output will be shown on the terminal.
 
-#### Instructions
+#### Instructions:
 
 import all the packages and run shell.py program
 
 For help, type "help" in commandline
 
-#### How to run commands
+#### How to run commands:
 
 1. ls :
 
-   >> ls : lists all files and directories
+-> ls : lists all files and directories
    
-   >> ls -a : lists all files including hidden files
+-> ls -a : lists all files including hidden files
    
-   >> ls -h : lists all files with sizes
+-> ls -h : lists all files with sizes
    
-   >> ls -l : lists all files with modes, sizes, datetime and so on
+-> ls -l : lists all files with modes, sizes, datetime and so on
 
 2. mkdir :
 
-   >> mkdir demo : to create a directory
+-> mkdir demo : to create a directory
 
 3. cd :
 
-   >> cd demo : changes to named directory
+-> cd demo : changes to named directory
    
-   C:\Users\ashri\Downloads\Shell\demo
+C:\Users\ashri\Downloads\Shell\demo
    
 4. cd .. : 
 
