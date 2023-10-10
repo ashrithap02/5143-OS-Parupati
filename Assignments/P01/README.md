@@ -18,13 +18,16 @@ import all the packages and run shell.py program
 
 For help, type "help" in commandline
 
-# How to run commands
+#### How to run commands
 
 1. ls :
 
    >> ls : lists all files and directories
+   
    >> ls -a : lists all files including hidden files
+   
    >> ls -h : lists all files with sizes
+   
    >> ls -l : lists all files with modes, sizes, datetime and so on
 
 2. mkdir :
@@ -34,6 +37,7 @@ For help, type "help" in commandline
 3. cd :
 
    >> cd demo : changes to named directory
+   
    C:\Users\ashri\Downloads\Shell\demo
    
 4. cd .. : 
