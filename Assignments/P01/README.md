@@ -1,5 +1,5 @@
 #### 5143 - P01
-#### Shell project
+#### Shell Project
 
 #### Group members
 
@@ -38,69 +38,131 @@ For help, type "help" in commandline
 
 -> cd demo : changes to named directory
    
-C:\Users\ashri\Downloads\Shell\demo
+   C:\Users\ashri\Downloads\Shell\demo
    
 4. cd .. : 
 
-   >> cd .. : changes to parent directory
+-> cd .. : changes to parent directory
+
    C:\Users\ashri\Downloads\Shell
    
 5. cd ~ :
 
-   >> cd ~ : changes to home directory
+-> cd ~ : changes to home directory
+
    C:\Users\ashri
 
 6. pwd :
 
-   >> pwd : displays the path of current directory
+-> pwd : displays the path of current directory
+
    C:\Users\ashri\Downloads\Shell
 
 7. mv :
 
-   >> mv code1.py code2.py : to rename file1 to file2
+-> mv code1.py code2.py : to rename file1 to file2
+
    File moved successfully
 
 8. cp :
 
-   >> cp shell.py code1.py : to copy file1 to file2
+-> cp shell.py code1.py : to copy file1 to file2
+
    File copied successfully
-   >> cp shell.py ash\code3.py : to copy file1 to a file2 in other directory
+
+-> cp shell.py ash\code3.py : to copy file1 to a file2 in other directory
+
    File copied successfully
 
 9. rm :
-     >> rm code1.py : to delete a file
-     File deleted successfully
-     >> rm -r demo : to delete files in a directory
-     Directory deleted successfully
+    
+-> rm code1.py : to delete a file
 
-10. rmdir :
+   File deleted successfully
 
-    >> rmdir demo : to remove a directory
-    Directory removed successfully
+-> rm -r demo : to delete files in a directory
 
-11. cat :
+   Directory deleted successfully
 
-    >> cat shell.py : to display a file
+11. rmdir :
 
-12. less :
+-> rmdir demo : to remove a directory
 
-    >> less shell.py : to display a page of file at a time
+   Directory removed successfully
 
-13. head :
+12. cat :
 
-    >> head shell.py : to display first few lines of file
-    >> head shell.py -n 17 : to display first lines of file according to the number given
-14. tail :
+-> cat shell.py : to display a file
 
-    >> tail shell.py : to display last few lines of file
-    >> tail shell.py -n 13 : to display last lines of file according to the number given
+13. less :
 
-15. grep :
+-> less shell.py : to display a page of file at a time
 
-    >> grep "head" keyword : to search a keyword in file and print lines where pattern is found
-    >> grep -l head shell.py code1.py : only return file names where the word or pattern is found
-    shell.py
-    code1.py
+14. head :
+
+-> head shell.py : to display first few lines of file
+
+-> head shell.py -n 17 : to display first lines of file according to the number given
+
+15. tail :
+
+-> tail shell.py : to display last few lines of file
+
+-> tail shell.py -n 13 : to display last lines of file according to the number given
+
+16. grep :
+
+-> grep "head" keyword : to search a keyword in file and print lines where pattern is found
+
+-> grep -l head shell.py code1.py : only return file names where the word or pattern is found
+
+   shell.py
+
+   code1.py
+
+17. wc :
+
+-> wc shell.py : to count number of lines,words,characters in file
+
+-> wc -w shell.py : to count number of words in file
+
+-> wc -m shell.py : to count number of characters in file
+
+-> wc -l shell.py : to count number of lines in file
+
+18. history :
+
+-> history : to show history of all commands executed
+
+19. !x :
+
+-> !5 : loads the command which the number represents
+
+20. chmod 777 :
+
+-> chmod 777 code1.py
+
+   File permission changed successfully
+
+21. sort :
+
+-> sort code2 : to sort the data in a file
+
+22. who :
+
+-> who : gives user currenlty logged in
+
+   ashri
+
+23. Redirection:
+
+-> cat shell.py code1.py > code2.py : to concatenate the contents in file1 and file2 to new file
+
+   Concatenated content saved as 'code2.py'
+
+#### Non working components
+
+Piping concept - couldn't implement as it takes some more time to complete before the deadline
 
   
 
