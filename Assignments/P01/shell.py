@@ -26,10 +26,11 @@ try:
         elif param=='-l':
              # Detailed listing of files with mode, size, and modification time
             for item in os.scandir(cur_dir):
-                    mode = stat.filemode(item.stat().st_mode)
-                    size = item.stat().st_size
-                    modified_time = datetime.datetime.fromtimestamp(item.stat().st_mtime)
-                    print(f"{mode}\t{item.name} \t Size: {size} bytes\t Last Modified: {modified_time}")
+                    if item.name[0]!='.':
+                        mode = stat.filemode(item.stat().st_mode)
+                        size = item.stat().st_size
+                        modified_time = datetime.datetime.fromtimestamp(item.stat().st_mtime)
+                        print(f"{mode}\t{item.name} \t Size: {size} bytes\t Last Modified: {modified_time}")
         
         elif param=='-h':
              # List files with human-readable sizes
@@ -38,6 +39,14 @@ try:
                     cur_path=os.path.join(cur_dir, i)
                     #print(cur_path)
                     print(i,'\t',os.path.getsize(cur_path), 'bytes')
+        
+        elif param=='-lah':
+             # Detailed listing of files with mode, size, and modification time
+            for item in os.scandir(cur_dir):
+                    mode = stat.filemode(item.stat().st_mode)
+                    size = item.stat().st_size
+                    modified_time = datetime.datetime.fromtimestamp(item.stat().st_mtime)
+                    print(f"{mode}\t{item.name} \t Size: {size} bytes\t Last Modified: {modified_time}")
 
  # Define functions to copy the file
     def copy_file(src, dest):
