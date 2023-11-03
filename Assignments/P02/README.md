@@ -20,11 +20,19 @@ Import all packages and run walkthrough.py program
 1.ls -lah - lists all files including details like id, name, filetype, modes, datetime and so on
 
 2.mkdir - to create a directory
+
 3.cd - changes to named directory
+
 4.cd .. - changes to parent directory
+
 5.pwd - displays the path of current directory
+
 6.mv - to rename the filename
+
 7.cp - to copy one file contents to other file
+
 8.rm -rf - to delete the folder including files in it
+
 9.history - to show history of all commands executed
+
 10.chmod 777 - to change permission of files
