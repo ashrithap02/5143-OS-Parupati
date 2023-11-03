@@ -29,6 +29,6 @@ def setup_database(db_path):
     conn.close()
 
 if __name__ == "__main__":
-    db_path = "file_system.db"
+    db_path = "my_database.db"
     setup_database(db_path)
     print(f"Database setup completed at {db_path}")
