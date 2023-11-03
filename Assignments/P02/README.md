@@ -18,6 +18,7 @@ Import all packages and run walkthrough.py program
 
 #### Running commands:
 1.ls -lah - lists all files including details like id, name, filetype, modes, datetime and so on
+
 2.mkdir - to create a directory
 3.cd - changes to named directory
 4.cd .. - changes to parent directory
